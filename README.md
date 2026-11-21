@@ -24,6 +24,11 @@ explore-then-commit baseline that estimates $\theta^*$ once at the start.
 | i.i.d. contexts, uniform noise | slope 0.62 | slope 0.63, lower $R_T$ | When contexts are i.i.d., the explore-then-commit baseline is hard to beat |
 | i.i.d. contexts, cliff (non-Lipschitz) noise | slope 0.69 | slope 0.80 | CMRUP's advantage shrinks as $T$ grows |
 
+The adversarial result uses greedy UCB in the price-elimination phase. With the theory's
+Lipschitz-corrected elimination, VAPE loses this advantage at these horizons
+(`ch3_vape_vs_cmrup.py`, `ch3_adversarial_A.png`): the correction is too conservative to
+eliminate prices.
+
 Slopes are fitted on log-log plots of $R_T$ against $T$, using the mean over 15 seeds. A slope
 below 1 means the regret grows sub-linearly.
 
